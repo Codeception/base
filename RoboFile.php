@@ -653,18 +653,18 @@ class RoboFile extends \Robo\Tasks
         $this->taskGitStack()
             ->add('composer.*')
             ->commit('auto-update')
-            ->exec("push -f base base:$branch")
+            ->exec("push base base:$branch")
             ->run();
 
         if ($tag) {
             $this->taskGitStack()
+                ->exec("tag -d $tag")
                 ->exec("tag $tag")
                 ->push('base', $tag)
                 ->run();
         }
 
         $this->taskGitStack()
-            ->exec("push -f base base:$branch --tags")
             ->checkout($branch)
             ->exec('branch -D base')
             ->run();
