@@ -640,6 +640,11 @@ class RoboFile extends \Robo\Tasks
             ->run();
 
         $this->taskReplaceInFile('composer.json')
+            ->from('"codeception/codeception"')
+            ->to('"codeception/base"')
+            ->run();
+
+        $this->taskReplaceInFile('composer.json')
             ->regex('~^\s+"facebook\/webdriver".*$~m')
             ->to('')
             ->run();
