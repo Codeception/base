@@ -634,8 +634,8 @@ class RoboFile extends \Robo\Tasks
         if (!$branch) $branch = self::STABLE_BRANCH;
         $this->say("Updating Codeception Base distribution");
 
+        $this->taskGitStack()->exec('branch -d base')->run();
         $this->taskGitStack()
-            ->exec('branch -d base')
             ->checkout('-b base')
             ->run();
 
@@ -651,7 +651,7 @@ class RoboFile extends \Robo\Tasks
 
         $this->taskComposerInstall()->run();
         $this->taskGitStack()
-            ->add('composer.*')
+            ->add('composer*')
             ->commit('auto-update')
             ->exec("push -f base base:$branch")
             ->run();
