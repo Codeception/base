@@ -653,7 +653,7 @@ class RoboFile extends \Robo\Tasks
         $this->taskGitStack()
             ->add('composer.*')
             ->commit('auto-update')
-            ->exec("push base base:$branch")
+            ->exec("push -f base base:$branch")
             ->run();
 
         if ($tag) {
