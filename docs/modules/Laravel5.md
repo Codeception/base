@@ -55,6 +55,9 @@ Use it in Helpers or GroupObject or Extension classes:
 ```php
 $els = $this->getModule('Laravel5')->_findElements('.items');
 $els = $this->getModule('Laravel5')->_findElements(['name' => 'username']);
+
+$editLinks = $this->getModule('Laravel5')->_findElements(['link' => 'Edit']);
+// now you can iterate over $editLinks and check that all them have valid hrefs
 ```
 
 WebDriver module returns `Facebook\WebDriver\Remote\RemoteWebElement` instances
@@ -420,6 +423,7 @@ $I->dontSeeRecord('users', array('name' => 'davert'));
 
  * `param` $tableName
  * `param array` $attributes
+@part orm
 
 
 ### fillField
@@ -1058,6 +1062,11 @@ $I->sendAjaxRequest('PUT', '/posts/7', array('title' => 'new title'));
  * `param` $method
  * `param` $uri
  * `param` $params
+
+
+### setApplication
+ 
+ * `param` $app
 
 
 ### setCookie

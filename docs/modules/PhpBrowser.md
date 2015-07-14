@@ -68,6 +68,9 @@ Use it in Helpers or GroupObject or Extension classes:
 ```php
 $els = $this->getModule('PhpBrowser')->_findElements('.items');
 $els = $this->getModule('PhpBrowser')->_findElements(['name' => 'username']);
+
+$editLinks = $this->getModule('PhpBrowser')->_findElements(['link' => 'Edit']);
+// now you can iterate over $editLinks and check that all them have valid hrefs
 ```
 
 WebDriver module returns `Facebook\WebDriver\Remote\RemoteWebElement` instances
