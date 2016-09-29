@@ -761,7 +761,7 @@ If no parameters are provided, the full URI is returned.
 
 ``` php
 <?php
-$user_id = $I->grabFromCurrentUrl('~^/user/(\d+)/~');
+$user_id = $I->grabFromCurrentUrl('~$/user/(\d+)/~');
 $uri = $I->grabFromCurrentUrl();
 ?>
 ```
@@ -916,7 +916,7 @@ $I->pressKey('#name', array('ctrl', 'a'), \Facebook\WebDriver\WebDriverKeys::DEL
 ```
 
  * `param` $element
- * `param` $char Can be char or array with modifier. You can provide several chars.
+ * `param` $char string|array Can be char or array with modifier. You can provide several chars.
  * `throws`  \Codeception\Exception\ElementNotFound
 
 
