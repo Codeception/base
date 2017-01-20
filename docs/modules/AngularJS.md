@@ -298,6 +298,18 @@ $I->clickWithRightButton(['css' => '.checkout'], 20, 50);
 @throws \Codeception\Exception\ElementNotFound
 
 
+### closeTab
+ 
+Closes current browser tab and switches to previous active tab.
+
+```php
+<?php
+$I->closeTab();
+```
+
+Can't be used with PhantomJS
+
+
 ### debugWebDriverLogs
  
 Print out latest Selenium Logs in debug mode
@@ -412,6 +424,7 @@ $I->dontSeeElement('input', ['value' => '123456']);
 Opposite of `seeElementInDOM`.
 
  * `param` $selector
+ * `param array` $attributes
 
 
 ### dontSeeInCurrentUrl
@@ -791,6 +804,21 @@ $I->moveMouseOver(['css' => '.checkout'], 20, 50);
 @throws \Codeception\Exception\ElementNotFound
 
 
+### openNewTab
+ 
+Opens a new browser tab (wherever it is possible) and switches to it.
+
+```php
+<?php
+$I->openNewTab();
+```
+Tab is opened by using `window.open` javascript in a browser.
+Please note, that adblock can restrict creating such tabs.
+
+Can't be used with PhantomJS
+
+
+
 ### pauseExecution
  
 Pauses test execution in debug mode.
@@ -999,6 +1027,7 @@ $I->seeElementInDOM('//form/input[type=hidden]');
 ```
 
  * `param` $selector
+ * `param array` $attributes
 
 
 ### seeInCurrentUrl
@@ -1118,6 +1147,8 @@ Checks that the active JavaScript popup,
 as created by `window.alert`|`window.confirm`|`window.prompt`, contains the given string.
 
  * `param` $text
+
+@throws \Codeception\Exception\ModuleException
 
 
 ### seeInSource
@@ -1431,6 +1462,42 @@ $I->switchToIFrame();
  * `param string|null` $name
 
 
+### switchToNextTab
+ 
+Switches to next browser tab.
+An offset can be specified.
+
+```php
+<?php
+// switch to next tab
+$I->switchToNextTab();
+// switch to 2nd next tab
+$I->switchToNextTab(2);
+```
+
+Can't be used with PhantomJS
+
+ * `param int` $offset 1
+
+
+### switchToPreviousTab
+ 
+Switches to next browser tab.
+An offset can be specified.
+
+```php
+<?php
+// switch to previous tab
+$I->switchToNextTab();
+// switch to 2nd previous tab
+$I->switchToNextTab(-2);
+```
+
+Can't be used with PhantomJS
+
+ * `param int` $offset 1
+
+
 ### switchToWindow
  
 Switch to another window identified by name.
@@ -1452,7 +1519,9 @@ $I->switchToWindow();
 ?>
 ```
 
-If the window has no name, the only way to access it is via the `executeInSelenium()` method, like so:
+If the window has no name, match it by switching to next active tab using `switchToNextTab` method.
+
+Or use native Selenium functions to get access to all opened windows:
 
 ``` php
 <?php
@@ -1472,6 +1541,8 @@ $I->executeInSelenium(function (\Facebook\WebDriver\Remote\RemoteWebDriver $webd
 Enters text into a native JavaScript prompt popup, as created by `window.prompt`.
 
  * `param` $keys
+
+@throws \Codeception\Exception\ModuleException
 
 
 ### uncheckOption
