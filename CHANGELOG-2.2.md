@@ -3,7 +3,8 @@
 * Don't skip other tests after a failed test #4226 by @Naktibalda
 * [REST] `seeResponseContainsJson` doesn't crash when json response is not an array by @Naktibalda
 * [PhpBrowser] Fixed redirecting to schemaless url by @Naktibalda #4218
-* [Doctrine2] Added `grabEntityFromRepository`, `grabEntitiesFromRepository` methods by @maximelebastard 
+* [Doctrine2] Added `grabEntityFromRepository`, `grabEntitiesFromRepository` methods by @maximelebastard
+* [REST] Don't fail dontSee*JsonPath assertions when response is scalar value. Closes #4237 by @Naktibalda 
 
 #### 2.2.11
 
