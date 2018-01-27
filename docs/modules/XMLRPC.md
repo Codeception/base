@@ -1,5 +1,6 @@
 # XMLRPC
 
+
 Module for testing XMLRPC WebService.
 
 This module can be used either with frameworks or PHPBrowser.
@@ -34,25 +35,29 @@ Otherwise sends raw HTTP requests to url via PHPBrowser.
 ## Actions
 
 ### haveHttpHeader
-
+ 
 Sets HTTP header
 
  * `param string` $name
  * `param string` $value
 
-### seeResponseCodeIs
 
+### seeResponseCodeIs
+ 
 Checks response code.
 
  * `param` $num
 
-### seeResponseIsXMLRPC
 
+### seeResponseIsXMLRPC
+ 
 Checks weather last response was valid XMLRPC.
 This is done with xmlrpc_decode function.
 
-### sendXMLRPCMethodCall
 
+
+### sendXMLRPCMethodCall
+ 
 Sends a XMLRPC method call to remote XMLRPC-server.
 
  * `param string` $methodName

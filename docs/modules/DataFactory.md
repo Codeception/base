@@ -1,5 +1,6 @@
 # DataFactory
 
+
 DataFactory allows you to easily generate and create test data using [**FactoryMuffin**](https://github.com/thephpleague/factory-muffin).
 DataFactory uses an ORM of your application to define, save and cleanup data. Thus, should be used with ORM or Framework modules.
 
@@ -8,7 +9,6 @@ This module requires packages installed:
 ```json
 {
  "league/factory-muffin": "^3.0",
- "league/factory-muffin-faker": "^1.0"
 }
 ```
 
@@ -113,7 +113,7 @@ In case your ORM expects a related record itself (Doctrine) then you should use 
 ## Actions
 
 ### have
-
+ 
 Generates and saves a record,.
 
 ```php
@@ -128,8 +128,9 @@ Returns an instance of created user.
 
  * `return` object
 
-### haveMultiple
 
+### haveMultiple
+ 
 Generates and saves a record multiple times.
 
 ```php

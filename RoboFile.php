@@ -190,11 +190,8 @@ class RoboFile extends \Robo\Tasks
      */
     public function buildPhar5()
     {
-        if (!file_exists('package/php54')) {
-            mkdir('package/php54');
-        }
         $this->installDependenciesForPhp54();
-        $this->packPhar('package/php54/codecept.phar');
+        $this->packPhar('package/codecept5.phar');
         $this->revertComposerJsonChanges();
     }
 
@@ -265,7 +262,10 @@ class RoboFile extends \Robo\Tasks
             ->addFile('phpunit5-loggers.php', 'phpunit5-loggers.php')
             ->run();
 
-        $code = $this->taskExec('php ' . $pharFileName)->run()->getExitCode();
+        if ($pharFileName !== 'codecept.phar') {
+            return;
+        }
+        $code = $this->taskExec('php codecept.phar')->run()->getExitCode();
         if ($code !== 0) {
             throw new Exception("There was problem compiling phar");
         }
@@ -481,10 +481,7 @@ EOF;
         if (strpos($version, self::STABLE_BRANCH) === 0) {
             $this->say("publishing to release branch");
             copy('../codecept.phar', 'codecept.phar');
-            if (!is_dir('php54')) {
-                mkdir('php54');
-            }
-            copy('../php54/codecept.phar', 'php5/codecept.phar');
+            copy('../codecept5.phar', 'php5/codecept.phar');
             $this->taskExec('git add codecept.phar')->run();
             $this->taskExec('git add php5/codecept.phar')->run();
         }
