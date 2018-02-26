@@ -24,6 +24,7 @@ Time: 2.07 seconds, Memory: 20.00MB
 OK (80 tests, 124 assertions)
 ```
 
+
 Enable this reporter with `--ext option`
 
 ```
@@ -32,6 +33,8 @@ codecept run --ext DotReporter
 
 Failures and Errors are printed by a standard Codeception reporter.
 Use this extension as an example for building custom reporters.
+
+
 
 ## Logger
 
@@ -57,6 +60,9 @@ extensions:
 
 * `max_files` (default: 3) - how many log files to keep
 
+
+
+
 ## Recorder
 
 [See Source](https://github.com/Codeception/Codeception/blob/2.3/ext/Recorder.php)
@@ -81,6 +87,7 @@ extensions:
 * `delete_successful` (default: true) - delete screenshots for successfully passed tests  (i.e. log only failed and errored tests).
 * `module` (default: WebDriver) - which module for screenshots to use. Set `AngularJS` if you want to use it with AngularJS module. Generally, the module should implement `Codeception\Lib\Interfaces\ScreenshotSaver` interface.
 
+
 #### Examples:
 
 ``` yaml
@@ -90,6 +97,9 @@ extensions:
             module: AngularJS # enable for Angular
             delete_successful: false # keep screenshots of successful tests
 ```
+
+
+
 
 ## RunFailed
 
@@ -117,6 +127,8 @@ extensions:
 ```
 
 On each execution failed tests are logged and saved into `tests/_output/failed` file.
+
+
 
 ## RunProcess
 
@@ -163,10 +175,14 @@ extensions:
 
 HINT: you can use different configurations per environment.
 
+
+
 ## SimpleReporter
 
 [See Source](https://github.com/Codeception/Codeception/blob/2.3/ext/SimpleReporter.php)
 
 This extension demonstrates how you can implement console output of your own.
 Recommended to be used for development purposes only.
+
+
 

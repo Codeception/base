@@ -1,5 +1,6 @@
 # Sequence
 
+
 Sequence solves data cleanup issue in alternative way.
 Instead cleaning up the database between tests,
 you can use generated unique names, that should not conflict.
