@@ -60,6 +60,7 @@ $I->bindQueueToExchange(
  * `param int` $ticket
  * `return` mixed|null
 
+
 ### declareExchange
  
 Declares an exchange
@@ -109,9 +110,10 @@ $I->declareQueue(
  * `param int` $ticket
  * `return` mixed|null
 
-### dontSeeQueueIsEmpty
 
-Checks that queue is not empty.
+### dontSeeQueueIsEmpty
+ 
+Checks if queue is not empty.
 
 ``` php
 <?php
@@ -121,6 +123,7 @@ $I->dontSeeQueueIsEmpty('queue.emails');
 ```
 
  * `param string` $queue
+
 
 ### grabMessageFromQueue
  
@@ -192,19 +195,13 @@ $I->pushToQueue('queue.jobs', new AMQPMessage('create'));
  * `param string` $queue
  * `param string|\PhpAmqpLib\Message\AMQPMessage` $message
 
-### seeQueueIsEmpty
- 
-Checks that queue is empty
 
-``` php
-<?php
-$I->pushToQueue('queue.emails', 'Hello, davert');
-$I->purgeQueue('queue.emails');
-$I->seeQueueIsEmpty('queue.emails');
-?>
-```
+### scheduleQueueCleanup
+ 
+Add a queue to purge list
 
  * `param string` $queue
+
 
 ### seeMessageInQueueContainsText
  
@@ -223,14 +220,31 @@ $I->seeMessageInQueueContainsText('queue.emails','davert');
  * `param string` $queue
  * `param string` $text
 
-### seeNumberOfMessagesInQueue
 
-Checks that queue have expected number of messages.
+### seeNumberOfMessagesInQueue
+ 
+Checks that queue have expected number of message
 
 ``` php
 <?php
 $I->pushToQueue('queue.emails', 'Hello, davert');
 $I->seeNumberOfMessagesInQueue('queue.emails',1);
+?>
+```
+
+ * `param string` $queue
+ * `param int` $expected
+
+
+### seeQueueIsEmpty
+ 
+Checks that queue is empty
+
+``` php
+<?php
+$I->pushToQueue('queue.emails', 'Hello, davert');
+$I->purgeQueue('queue.emails');
+$I->seeQueueIsEmpty('queue.emails');
 ?>
 ```
 

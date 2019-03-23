@@ -278,7 +278,6 @@ $mails = $I->grabFromDatabase('users', 'email', array('name' => 'RebOOter'));
  * `param string` $column
  * `param array`  $criteria
 
- * `return` array
 
 
 ### grabNumRecords
@@ -305,10 +304,6 @@ $I->haveInDatabase('users', array('name' => 'miles', 'email' => 'miles@davis.com
  * `param array` $data
 
  * `return integer` $id
-
-
-### isPopulated
-__not documented__
 
 
 ### performInDatabase
