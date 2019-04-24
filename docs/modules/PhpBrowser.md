@@ -288,7 +288,7 @@ $I->click('Submit');
 // CSS button
 $I->click('#form input[type=submit]');
 // XPath
-$I->click('//form/*[@type=submit]');
+$I->click('//form/*[@type="submit"]');
 // link in context
 $I->click('Logout', '#nav');
 // using strict locator
@@ -347,7 +347,7 @@ But will ignore strings like:
 For checking the raw source code, use `seeInSource()`.
 
  * `param string` $text
- * `param string` $selector optional
+ * `param array|string` $selector optional
 
 
 ### dontSeeCheckboxIsChecked
@@ -777,7 +777,7 @@ But will *not* be true for strings like:
 For checking the raw source code, use `seeInSource()`.
 
  * `param string` $text
- * `param string` $selector optional
+ * `param array|string` $selector optional
 
 
 ### seeCheckboxIsChecked

@@ -74,7 +74,7 @@ $users = $I->grabEntitiesFromRepository('AppBundle:User', array('name' => 'daver
 
  * `Available since` 1.1
  * `param` $entity
- * `param array` $params
+ * `param array` $params. For `IS NULL`, use `array('field'=>null)`
  * `return` array
 
 
@@ -94,7 +94,7 @@ $user = $I->grabEntityFromRepository('User', array('id' => '1234'));
 
  * `Available since` 1.1
  * `param` $entity
- * `param array` $params
+ * `param array` $params. For `IS NULL`, use `array('field'=>null)`
  * `return` object
 
 
