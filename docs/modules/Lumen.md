@@ -80,7 +80,7 @@ Use it in Helpers when you want to retrieve response of request performed by ano
 // in Helper class
 public function seeResponseContains($text)
 {
-   $this->assertContains($text, $this->getModule('Lumen')->_getResponseContent(), "response contains");
+   $this->assertStringContainsString($text, $this->getModule('Lumen')->_getResponseContent(), "response contains");
 }
 ?>
 ```
@@ -265,7 +265,7 @@ $I->click('Submit');
 // CSS button
 $I->click('#form input[type=submit]');
 // XPath
-$I->click('//form/*[@type=submit]');
+$I->click('//form/*[@type="submit"]');
 // link in context
 $I->click('Logout', '#nav');
 // using strict locator
@@ -324,7 +324,7 @@ But will ignore strings like:
 For checking the raw source code, use `seeInSource()`.
 
  * `param string` $text
- * `param string` $selector optional
+ * `param array|string` $selector optional
 
 
 ### dontSeeAuthentication
@@ -899,6 +899,22 @@ $I->haveSingleton('My\Interface', 'My\Singleton');
  * `param` $concrete
 
 
+### makeHtmlSnapshot
+ 
+Saves current page's HTML into a temprary file.
+Use this method in debug mode within an interactive pause to get a source code of current page.
+
+```php
+<?php
+$I->makePageSnapshot('edit_page');
+// saved to: tests/_output/debug/edit_page.html
+$I->makePageSnapshot();
+// saved to: tests/_output/debug/2017-05-26_14-24-11_4b3403665fea6.html
+```
+
+ * `param null` $name
+
+
 ### moveBack
  
 Moves back in history.
@@ -946,7 +962,7 @@ But will *not* be true for strings like:
 For checking the raw source code, use `seeInSource()`.
 
  * `param string` $text
- * `param string` $selector optional
+ * `param array|string` $selector optional
 
 
 ### seeAuthentication
@@ -1582,4 +1598,4 @@ $I->uncheckOption('#notify');
 
  * `param` $option
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.5/src/Codeception/Module/Lumen.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/3.0/src/Codeception/Module/Lumen.php">Help us to improve documentation. Edit module reference</a></div>

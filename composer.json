@@ -1,5 +1,5 @@
 {
-    "name":"codeception/codeception",
+    "name":"codeception/base",
     "description":"BDD-style testing framework",
     "keywords":["BDD", "acceptance testing", "functional testing", "unit testing", "tdd"],
     "homepage":"http://codeception.com/",
@@ -19,8 +19,7 @@
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "facebook/webdriver": "^1.6.0",
-        "guzzlehttp/guzzle": "^6.3.0",
+
         "guzzlehttp/psr7": "~1.4",
         "symfony/finder": ">=2.7 <5.0",
         "symfony/console": ">=2.7 <5.0",
@@ -32,7 +31,7 @@
         "behat/gherkin": "^4.4.0",
         "codeception/phpunit-wrapper": ">6.0.15 <6.1.0 | ^6.6.1 | ^7.7.1 | ^8.0.3",
         "codeception/stub": "^2.0",
-        "hoa/console": "~3.0"
+
     },
     "require-dev": {
         "monolog/monolog": "~1.8",
